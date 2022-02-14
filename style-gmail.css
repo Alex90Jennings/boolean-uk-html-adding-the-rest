@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .container {
+    height: 100vh;
+    display: grid;
+    grid-template:
+      "Top-Bar Top-Bar Top-Bar Top-Bar" 60px
+      "Left-Menu Emails Settings Shortcuts" 1fr /
+      220px 1fr 240px 40px;
+  }
+  /*TOP BAR*/
+  .Top-Bar {
+    grid-area: Top-Bar;
+    background-color: rgb(245, 245, 245);
+    display: grid;
+    grid-template-columns: 210px 1fr 280px;
+    grid-gap: 5px;
+    border-bottom: 1px rgba(128, 128, 128, 0.596) solid;
+  }
+  /* LOGO*/
+  .Top-Bar .Logo {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    padding: 5px;
+    grid-gap: 5px;
+  }
+  /*SEARCH*/
+  .Top-Bar .Search {
+    display: grid;
+    padding: 5px;
+  }
+  /*MENU*/
+  .Top-Bar .Menu {
+    grid-template-columns: 35px 35px 35px 100px;
+    display: grid;
+    justify-content: right;
+    padding: 5px;
+    grid-gap: 5px;
+    padding-left: 50px;
+  }
+  /*LEFT MENU*/
+  .Left-Menu {
+    grid-area: Left-Menu;
+    background-color: rgb(250, 249, 249);
+    display: grid;
+    grid-template-rows: 50px 2fr 80px 1fr;
+    padding: 5px;
+    grid-gap: 5px;
+    border-right: 1px rgba(128, 128, 128, 0.589) solid;
+  }
+  .Left-Menu .Folders {
+    display: grid;
+    grid-auto-rows: 30px;
+  }
+  .Left-Menu .Folders ul {
+    display: grid;
+    grid-auto-rows: 30px;
+    grid-gap: 5px;
+    padding: 5px;
+  }
+  .Left-Menu .Folders li {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 30px 1fr 20px;
+  }
+  /*EMAILS*/
+  .Emails {
+    grid-area: Emails;
+    background-color: rgb(250, 249, 249);;
+  }
+  /*SETTINGS*/
+  .Settings {
+    grid-area: Settings;
+    background-color: rgb(250, 249, 249);
+    border: 1px rgba(128, 128, 128, 0.589) solid;
+  }
+  /*SHORTCUTS*/
+  .Shortcuts {
+    grid-area: Shortcuts;
+    background-color: rgb(233, 232, 232);;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+  }
+  /*@MEDIA*/
+  @media screen and (max-width: 880px) {
+    .container {
+      grid-template:
+        "Top-Bar Top-Bar" 50px
+        "Left-Menu Emails" 1fr /
+        220px 1fr;
+    }
+    .Settings,
+    .Shortcuts {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 520px) {
+    .container {
+      grid-template:
+        "Top-Bar Top-Bar" 50px
+        "Left-Menu Emails" 1fr /
+        50px 1fr;
+    }
+  }
+  .Logo img,
+  .Menu img {
+      width: 40px;
+  }
+  .Folders img {
+      width: 25px;
+  }
