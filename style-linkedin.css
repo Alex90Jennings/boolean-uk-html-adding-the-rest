@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 body {
     background-color: lightgray;
@@ -9,14 +10,46 @@ body {
     display: grid;
     background-color: lightgray;
     grid-template: 
-    "header header header header header" 100px
+    "header header header header header" 80px
     ". left-container center-container right-container ." 1fr /
-    1fr 0.5fr 1.5fr 0.8fr 0.8fr ;
+    1fr minmax(200px, 1fr) minmax(400px, 3fr) minmax(300px, 1.5fr) 0.8fr;
 }
 .header {
     grid-area: header;
     background-color: rgb(250, 245, 245);
     margin-bottom: 20px;
+    border-bottom: 3px rgb(189, 189, 189) solid;
+
+    display: grid;
+    grid-template: 
+    ". logo search-bar icons ." 1fr /
+    1fr 0.4fr 3fr 5fr 0.8fr;
+    
+    gap: 10px;
+}
+.logo {
+    grid-area: logo;
+}
+.search-bar {
+    grid-area: search-bar;
+}
+.icons {
+    grid-area: icons;
+
+    display: grid;
+    grid-template:
+    "image image image image image image image image" 1fr /
+    1fr 1fr 1fr 1fr 1fr 1fr 1fr
+    ;
+
+    place-items: center;
+}
+.header img {
+    width: 50px;
+}
+.icons img {
+    width: 40px;
+
 }
 .box-container {
     min-height: 100vh;
@@ -30,6 +63,65 @@ body {
     "box-2" 0.7fr
     "box-3" 1fr /
     1fr;
+}
+.box-1 {
+    grid-area: box-1;
+        
+    display: grid;
+    grid-template: 
+    "user" 2fr
+    "views" 0.75fr
+    "premium" 0.5fr
+    "my-items" 0.25fr /
+    1fr;
+
+    padding: 5px;
+}
+.user div {
+    border-bottom: 1px rgb(189, 189, 189) solid;
+}
+.user {
+    display: grid;
+    grid-area: user;
+    place-items: center;
+}
+.user img {
+    width: 80px;
+    margin: 20px;
+}
+h4 {
+    display: inline;
+    color: rgb(189, 189, 189);
+}
+.box-1 p {
+    color: rgb(43, 138, 247);
+    font-weight: bold;
+}
+.views {
+    grid-area: views;
+
+    grid-template: 
+    "views number-1" 1fr
+    "post 164" 1fr /
+    1fr 20px ;
+}
+.views {
+    grid-area: views;
+}
+.number-1 {
+    grid-area: number-1;
+}
+.post {
+    grid-area: post;
+}
+.number-2 {
+    grid-area: number-2;
+}
+.premium {
+    grid-area: premium;
+}
+.my-items {
+    grid-area: my-items;
 }
 .center-container {
     display: grid;
@@ -52,9 +144,6 @@ body {
     "box-9" 1fr /
     1fr;
 }
-.box-1 {
-    grid-area: box-1;
-}
 .box-2 {
     grid-area: box-2;
 }
@@ -63,6 +152,35 @@ body {
 }
 .box-4 {
     grid-area: box-4;
+
+    display: grid;
+    grid-template: 
+    "box-4-1" 1fr
+    "box-4-2" 0.8fr /
+    1fr;
+}
+.box-4-1 {
+    grid-area: box-4-1;
+
+    display: grid;
+    grid-template: 
+    "profile-pic search-bar" 1fr /
+    100px 1fr;
+
+    place-items: center;
+}
+.box-4-1 img {
+    width: 50px;
+}
+.box-4-2 {
+    grid-area: box-4-2;
+
+    display: grid;
+    grid-template: 
+    "photo video document write-article" 1fr /
+    1fr 1fr 1fr 1fr;
+
+    padding: 20px;
 }
 .box-5 {
     grid-area: box-5;
@@ -72,6 +190,30 @@ body {
 }
 .box-7 {
     grid-area: box-7;
+
+    display: grid;
+    display: grid;
+    grid-template: 
+    "linkedin-news" 0.6fr
+    "articles" 5fr
+    "show-more" 1fr/
+    1fr;
+
+    padding: 5px;
+}
+.box-7 ul {
+    color: rgb(134, 134, 134);
+}
+.box-7 li {
+    padding: 10px 10px 30px 10px;
+    color: rgb(134, 134, 134);
+}
+.linkedin {
+    padding-left: 30px;
+    color: rgb(134, 134, 134);
+}
+.show-more {
+    padding-left: 50px;
 }
 .box-8 {
     grid-area: box-8;
@@ -85,10 +227,17 @@ body {
     border: 3px rgb(189, 189, 189) solid;
     border-radius: 5px;
 }
+.articles{
+    grid-area: articles;
+}
 .break {
     padding: 5px;
     margin-bottom: 5px;
 }
-p {
-    display: none;
+/*
+.inner-box {
+    border: 1px dashed black;
+    min-height: 40px;
+    min-width: 40px;
 }
+*/
