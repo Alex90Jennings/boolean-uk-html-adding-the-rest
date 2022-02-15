@@ -149,7 +149,8 @@ h5 {
     padding-left: 5px;
 }
 .box-4-2 img {
-    width: 18px;
+    width: 20px;
+    margin-left: 30px;
 }
 .box-5 {
     display: grid;
@@ -198,8 +199,4 @@ h5 {
     border: 2px pink dashed;
     margin: 5px;
     width: 100%;
-}
-.red-box {
-    border: 2px red dashed;
-    margin: 5px;
 }
