@@ -6,31 +6,36 @@ body {
     background-color: lightgray;
     margin: 0;
 }
+.super-container {
+    display: grid;
+
+    grid-template: 
+    ". header ." 80px
+    ". main-container ." 1fr /
+    minmax(50px, 300px) 1fr minmax(50px, 300px);
+ 
+    height: 100vh;
+}
 .main-container {
+    grid-area: main-container;
+
     display: grid;
     background-color: lightgray;
-    grid-template: 
-    "header header header header header" 80px
-    ". left-container center-container right-container ." 1fr /
-    1fr minmax(200px, 1fr) minmax(400px, 3fr) minmax(300px, 1.5fr) 0.8fr;
-
-    height: 100vh;
+    grid-template-columns: minmax(200px, 1fr) minmax(400px, 3fr) minmax(300px, 1.5fr);
 }
 .header {
     grid-area: header;
+
     background-color: rgb(250, 245, 245);
     margin-bottom: 20px;
     border-bottom: 3px rgb(189, 189, 189) solid;
 
     display: grid;
-    grid-template: 
-    ". logo search-bar icons ." 1fr /
-    1fr 0.4fr 3fr 5fr 0.8fr;
+    grid-template-columns: 0.4fr 3fr 5fr;
     
     gap: 10px;
 }
 .logo {
-    grid-area: logo;
     display: grid;
     place-items: center;
     justify-content: center;
@@ -42,12 +47,7 @@ body {
     margin-left: 10px;
     border-radius: 10px;
 }
-.search-bar {
-    grid-area: search-bar;
-}
 .icons {
-    grid-area: icons;
-
     display: grid;
     grid-template-columns: repeat(8, 1fr);
 
@@ -64,7 +64,6 @@ body {
     min-height: 100vh;
 }
 .left-container {
-    grid-area: left-container;
     display: grid;
 
     grid-template-rows: 0.7fr 0.7fr 1fr;
@@ -104,28 +103,15 @@ h5 {
 }
 .center-container {
     display: grid;
-    grid-area: center-container;
 
-    grid-template: 
-    "box-4" 0.2fr
-    "break" 0.01fr
-    "box-5" 1fr
-    "box-6" 0.3fr /
-    1fr;
+    grid-template-rows: 0.2fr 0.01fr 1fr 0.3fr;
 }
 .right-container {
     display: grid;
-    grid-area: right-container;
 
-    grid-template: 
-    "box-7" 0.8fr
-    "box-8" 0.7fr
-    "box-9" 1fr /
-    1fr;
+    grid-template-rows: 0.8fr 0.7fr 1fr;
 }
 .box-4 {
-    grid-area: box-4;
-
     display: grid;
     grid-template-rows: 1fr 0.8fr;
 }
@@ -156,8 +142,6 @@ h5 {
 .box-4-2 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-
-
     place-items: center;
 }
 .box-4-2 h4 {
@@ -168,24 +152,13 @@ h5 {
     width: 18px;
 }
 .box-5 {
-    grid-area: box-5;
-
     display: grid;
     grid-template-rows: repeat(3, 1fr);
 }
-.box-6 {
-    grid-area: box-6;
-}
 .box-7 {
-    grid-area: box-7;
-
     display: grid;
     display: grid;
-    grid-template: 
-    "linkedin-news" 0.6fr
-    "articles" 5fr
-    "show-more" 1fr/
-    1fr;
+    grid-template-rows: 0.6fr 5fr 1fr;
 
     padding: 5px;
 }
@@ -203,20 +176,11 @@ h5 {
 .show-more {
     padding-left: 50px;
 }
-.box-8 {
-    grid-area: box-8;
-}
-.box-9 {
-    grid-area: box-9;
-}
 .boxes {
     background-color: rgb(250, 245, 245);
     margin: 3px 10px;
     border: 3px rgb(189, 189, 189) solid;
     border-radius: 5px;
-}
-.articles{
-    grid-area: articles;
 }
 .break {
     padding: 5px;
@@ -232,5 +196,10 @@ h5 {
 }
 .pink-box {
     border: 2px pink dashed;
+    margin: 5px;
+    width: 100%;
+}
+.red-box {
+    border: 2px red dashed;
     margin: 5px;
 }
