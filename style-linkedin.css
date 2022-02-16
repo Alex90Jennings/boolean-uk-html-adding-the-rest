@@ -183,6 +183,10 @@ h5 {
     border: 3px rgb(189, 189, 189) solid;
     border-radius: 5px;
 }
+.articles {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+}
 .break {
     padding: 5px;
     margin-bottom: 5px;
